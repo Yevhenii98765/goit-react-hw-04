@@ -28,10 +28,7 @@ button {
     color: inherit;
     background-color: transparent;
     cursor: pointer;
-    display: block;
-    margin: 0 auto;
-    box-shadow: 2px 2px 2px 2px grey;
-    padding: 10px 20px;
+    border: 2px solid black;
 }
 
 a {
