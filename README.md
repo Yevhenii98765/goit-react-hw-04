@@ -8,3 +8,15 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 spread, rest. short props of an object, map, filter, logical operators, ternary operator
+  useEffect(() => {
+    if(!searchQuery) return ;
+    const getData = async () => {
+      const data = await searchPhotos(searchQuery, page);
+      setPhotos(prev => [...prev, ...data])
+    }
+      getData()
+  },[page, searchQuery]);
+
+  const onSubmit = (searchQuery) => {
+    setSearchQueruy(searchQuery);
+}

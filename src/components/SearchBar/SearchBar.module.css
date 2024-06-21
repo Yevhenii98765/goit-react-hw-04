@@ -1,0 +1,41 @@
+.iner {
+    max-width: 500px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.form_style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 22px;
+    position: relative;
+    .input_style {
+        outline-style: inset;
+        padding: 10px 10px 10px 35px;
+        &::placeholder {
+            color: brown;
+            font-size: 24px;
+            font-weight: 700;
+        }
+    }
+    .icon_style {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        left: 106px;
+        top: 1px;
+    }
+    button { 
+        box-shadow: 2px 2px 2px 2px grey;
+        padding: 6px 6px;
+        outline-style: inset;
+        border-radius: 100%;
+        &:hover {
+            background-color: green;
+            color: white;
+            transition: 0.4s ease-in;
+        }
+    }
+}
