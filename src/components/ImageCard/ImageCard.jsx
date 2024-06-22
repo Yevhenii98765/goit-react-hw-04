@@ -1,7 +1,7 @@
-export const ImageCard = ({item, openPost}) => {
+export const ImageCard = ({item, handleOpenModal}) => {
   const {urls} = item
-  return <li onClick={() => openPost(item)} style={{cursor: 'pointer'}}>
-     <img src={urls.small_s3} alt="" />
+  return <li style={{cursor: 'pointer'}}>
+     <img onClick={() => handleOpenModal({src: urls.regular})} src={urls.small} alt="" />
   </li>
 }
 export default ImageCard

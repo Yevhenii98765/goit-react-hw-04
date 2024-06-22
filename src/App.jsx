@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import ImageGalerry from "./components/ImageGalerry/ImageGalerry";
+import ImageGallery from "./components/ImageGallery/ImageGallery";
 import { searchPhotos } from "./services/api";
 import Container from "./components/Container/Container";
 
@@ -11,8 +11,8 @@ const [page, setPage] = useState(1);
 const [photos, setPhotos] = useState([])
 const [isLoading, setIsLiading] = useState(false)
 const [error, setError] = useState(false)
-const [modal, SetModal] = useState(null)
-const [isOpen, setIsOpen] = useState(false)
+const [isOpenModal, setIsOpenModal] = useState(false)
+const [selectImg, setSelectImg] = useState(null)
 
 useEffect(() => {
 
@@ -32,14 +32,14 @@ useEffect(() => {
   getData()
   },[page, searchQuery,])
 
-const toggleModal = () => setIsOpen(prev => !prev);
-const openPost = post => {
-  toggleModal()
-  SetModal(post)
+const handleOpenModal = (img) => {
+  setIsOpenModal(true)
+  setSelectImg(img)
 }
 
-const CloseModal = () => {
-  setIsOpen(false)
+const closeModal = () => {
+  setIsOpenModal(false)
+  setSelectImg(null)
 }
 
 const onSubmit = (searchQuery) => {
@@ -55,15 +55,15 @@ const hendleLoadMore = () => {
   return (
     <>
     <Container >
-      <ImageGalerry 
+      <ImageGallery 
       onSubmit={onSubmit} 
       photos={photos} 
       hendleLoadMore={hendleLoadMore} 
       isLoading={isLoading} error={error} 
-      openPost={openPost} isOpen={isOpen} 
-      toggleModal={toggleModal}
-      CloseModal={CloseModal}
-      modal={modal}
+      closeModal ={closeModal}
+      handleOpenModal ={handleOpenModal}
+      isOpenModal ={isOpenModal}
+      selectImg={selectImg}
       />
     </Container>
     </>

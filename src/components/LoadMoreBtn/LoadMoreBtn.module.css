@@ -1,9 +1,10 @@
 .iner {
     margin: 40px 0;
-    button {
-        border: 2px solid black;
-        padding: 10px 20px;
-        display: block;
-        margin: 0 auto;
-    }
+}
+
+.lm_btn {
+    border: 2px solid black;
+    padding: 10px 20px;
+    display: block;
+    margin: 0 auto;
 }
