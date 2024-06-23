@@ -20,3 +20,6 @@ spread, rest. short props of an object, map, filter, logical operators, ternary 
   const onSubmit = (searchQuery) => {
     setSearchQueruy(searchQuery);
 }
+\
+
+  ❌

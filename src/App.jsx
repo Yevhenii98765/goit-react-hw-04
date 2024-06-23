@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import { searchPhotos } from "./services/api";
 import Container from "./components/Container/Container";
+import SearchBar from "./components/SearchBar/SearchBar";
+import Loader from "./components/Loader/Loader";
+import { LoadMoreBtn } from "./components/LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "./components/ImageModal/ImageModal";
 
 const App = () => {
 
@@ -52,19 +56,26 @@ const hendleLoadMore = () => {
   setPage(prev => prev + 1);
 }
 
+
   return (
     <>
     <Container >
-      <ImageGallery 
-      onSubmit={onSubmit} 
+      <SearchBar onSubmit={onSubmit} />
+      <ImageGallery  
       photos={photos} 
-      hendleLoadMore={hendleLoadMore} 
-      isLoading={isLoading} error={error} 
-      closeModal ={closeModal}
       handleOpenModal ={handleOpenModal}
-      isOpenModal ={isOpenModal}
-      selectImg={selectImg}
       />
+        {isLoading && <Loader />}
+        {error && (
+          <div className={s.error}>
+            <img
+              src="https://static9.depositphotos.com/1010555/1192/i/450/depositphotos_11926134-stock-photo-error-concept.jpg"
+              alt=""
+            />
+          </div>
+        )}
+        {!isLoading && <LoadMoreBtn hendleLoadMore={hendleLoadMore}/>}
+        <ImageModal modalIsOpen={isOpenModal} closeModal={closeModal} selectImg={selectImg}/>
     </Container>
     </>
   );

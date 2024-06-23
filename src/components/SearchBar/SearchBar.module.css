@@ -5,12 +5,23 @@
 }
 
 .form_style {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 22px;
     position: relative;
+    .wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 22px;
+        position: relative;
+    }
+    .error_style {
+        position: absolute;
+        top: 16%;
+        left: 0;
+        color: brown;
+        font-size: 25px;
+        font-weight: bold;
+    }
     .input_style {
         outline-style: inset;
         padding: 10px 10px 10px 35px;
@@ -24,13 +35,12 @@
         width: 35px;
         height: 35px;
         position: absolute;
-        left: 106px;
+        left: 101px;
         top: 1px;
     }
     button { 
-        box-shadow: 2px 2px 2px 2px grey;
+
         padding: 6px 6px;
-        outline-style: inset;
         border-radius: 100%;
         &:hover {
             background-color: green;
