@@ -9,12 +9,15 @@ import 'react-toastify/dist/ReactToastify.css';
 export const SearchBar = ({ onSubmit}) => {
 
     const FeedbackSchema = Yup.object().shape({
-        text: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required")
+        text: Yup.string().min(2, "Too Short!").max(50, "Too Long!")
       });
 
     const initialValues = { text: ""}
 
     const submitForm = (value, actions,) => {
+        if(!value.text) {
+           return notify()            
+        }
         onSubmit(value.text);
         actions.resetForm()
     }
@@ -40,7 +43,7 @@ export const SearchBar = ({ onSubmit}) => {
                     <div className={s.wrap}>
                         <MdImageSearch className={s.icon_style}/>
                         <Field type="text" name="text" placeholder="Search term" className={s.input_style}/>
-                        <button  type="submit"> Go </button>
+                        <button type="submit"> Go </button>
                         <ToastContainer />
                     </div>
                     <ErrorMessage name="text" component="span" className={s.error_style}/>
