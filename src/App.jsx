@@ -74,7 +74,7 @@ const hendleLoadMore = () => {
             />
           </div>
         )}
-        {!isLoading && <LoadMoreBtn hendleLoadMore={hendleLoadMore}/>}
+        {isLoading && <LoadMoreBtn hendleLoadMore={hendleLoadMore}/>}
         <ImageModal modalIsOpen={isOpenModal} closeModal={closeModal} selectImg={selectImg}/>
     </Container>
     </>
